@@ -1,16 +1,16 @@
 import Link from "next/link";
 import { BsJustifyLeft } from "react-icons/bs";
-import { CiSearch } from "react-icons/ci";
+import { CiSearch, CiUser, CiShoppingCart } from "react-icons/ci";
 import { BiListUl } from "react-icons/bi";
-import { CiUser } from "react-icons/ci";
-import { CiShoppingCart } from "react-icons/ci";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+    <div className="navbar bg-base-100 px-4">
+      {/* Navbar Start */}
+      <div className="navbar-start flex items-center gap-2">
+        {/* Hamburger Menu for Small Screens */}
+        <div className="dropdown lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -49,64 +49,52 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+
+        {/* Logo */}
         <div className="bg-[#F3F9FB] rounded-lg p-1">
-          <BsJustifyLeft className="text-3xl text-[#008ECC] " />
+          <BsJustifyLeft className="text-3xl text-[#008ECC]" />
         </div>
-        <Link href={"/"} className="text-2xl ml-2 font-bold text-[#008ECC]">
+        <Link href="/" className="text-xl lg:text-2xl font-bold text-[#008ECC]">
           MegaMart
         </Link>
       </div>
+
+      {/* Navbar Center */}
       <div className="navbar-center hidden lg:flex">
-        {/* <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
-        </ul> */}
         <div className="relative max-w-2xl mx-auto">
           <CiSearch
             className="absolute top-1/2 left-3 transform -translate-y-1/2 text-[#008ECC]"
             size={24}
           />
-
           <input
             type="text"
-            className="bg-[#F3F9FB] pl-10 py-2 px-72 w-full rounded-md text-[#333] placeholder:text-[#aaa] focus:outline-none "
+            className="bg-[#F3F9FB] pl-10 pr-12 py-2 w-full rounded-md text-[#333] placeholder:text-[#aaa] focus:outline-none"
             placeholder="Search essentials, groceries and more..."
           />
-
           <BiListUl
             className="absolute top-1/2 right-3 transform -translate-y-1/2 text-[#008ECC]"
             size={24}
           />
         </div>
       </div>
-      <div className="navbar-end">
-        <div className="flex gap-3 items-center">
-          <div className="flex items-center">
-            <CiUser className="text-[#008ECC] text-2xl" />
-            <h2 className="font-medium">Sign Up/Sign In</h2>
-          </div>
-          <div className="h-6 w-[1px] bg-gray-300"></div>
-          <div className="flex items-center gap-1">
-            <CiShoppingCart className="text-2xl text-[#008ECC]" />
-            <h2 className="font-medium">Cart</h2>
-          </div>
+
+      {/* Navbar End */}
+      <div className="navbar-end flex items-center gap-3">
+        {/* User Login */}
+        <div className="hidden sm:flex items-center gap-2">
+          <CiUser className="text-[#008ECC] text-xl lg:text-2xl" />
+          <h2 className="text-sm lg:text-base font-medium">Sign Up/Sign In</h2>
+        </div>
+
+        {/* Divider */}
+        <div className="hidden sm:block h-6 w-[1px] bg-gray-300"></div>
+
+        {/* Cart */}
+        <div className="flex items-center gap-2">
+          <CiShoppingCart className="text-[#008ECC] text-xl lg:text-2xl" />
+          <h2 className="hidden sm:block text-sm lg:text-base font-medium">
+            Cart
+          </h2>
         </div>
       </div>
     </div>
