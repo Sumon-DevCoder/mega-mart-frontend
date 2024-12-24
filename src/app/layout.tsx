@@ -20,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${hankenGrotesk.variable} antialiased`}>
+      <body
+        className={`${hankenGrotesk.variable} antialiased bg-[#FFFFFF] text-black max-w-screen-xl m-auto`}
+      >
         {children}
       </body>
     </html>
