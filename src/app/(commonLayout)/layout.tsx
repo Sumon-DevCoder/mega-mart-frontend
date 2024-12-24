@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Navbar from "./components/Navbar";
+import FooterPage from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "MegaMart",
@@ -10,5 +12,13 @@ export default async function dashboardLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <div className="">
+        <Navbar />
+        {children}
+      </div>
+      <FooterPage />
+    </div>
+  );
 }
