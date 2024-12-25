@@ -77,8 +77,8 @@ const FooterPage = () => {
       </div>
 
       <div className="border-t border-[#05ABF3] max-w-[1200px] m-auto"></div>
-      <p className="text-center mt-2 font-normal">
-        © {new Date().getFullYear()} All rights reserved. Reliance Retail Ltd.
+      <p className="text-center mt-2 font-normal text-sm">
+        © {new Date().getFullYear()} All rights reserved. MegaMart Ltd.
       </p>
     </footer>
   );

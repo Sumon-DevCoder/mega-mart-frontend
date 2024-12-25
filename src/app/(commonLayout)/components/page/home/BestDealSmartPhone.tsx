@@ -3,6 +3,7 @@
 import { useGetProductsQuery } from "@/redux/features/product/productApi";
 import SectionTitle from "../../SectionTitle";
 import Image from "next/image";
+import { TProduct } from "@/types/product.types";
 
 const BestDealSmartPhone = () => {
   const { data } = useGetProductsQuery("Mobile");
@@ -13,7 +14,7 @@ const BestDealSmartPhone = () => {
     <div>
       <SectionTitle subtitle="Grab the best deal on" title="Smartphones" />
       <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 place-items-center gap-6 mt-10 mx-0  md:mx-6 lg:mx-0 m-auto">
-        {mobiles?.map((mobile) => {
+        {mobiles?.map((mobile: TProduct) => {
           const discountPercentage = mobile.discount || 0; // Ensure discount is handled
           const originalPrice = mobile.price || 0;
           const discountedPrice = Math.round(
@@ -23,7 +24,7 @@ const BestDealSmartPhone = () => {
 
           return (
             <div
-              key={mobile.id}
+              key={mobile._id}
               className="relative bg-white rounded-2xl shadow-lg  w-[227px] "
             >
               {/* Discount Label */}
@@ -38,7 +39,7 @@ const BestDealSmartPhone = () => {
                 height={200}
                 width={200}
                 src={mobile?.img?.[0]}
-                alt={mobile.title}
+                alt={mobile.name}
                 className="w-full h-40 object-cover rounded-t-lg bg-[#F5F5F5]"
               />
               {/* Product Info */}

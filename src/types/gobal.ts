@@ -51,6 +51,7 @@ export enum CartStatus {
 
 export type TProduct = {
   _id: string;
+  categoryImg: string;
   name: string;
   description: string;
   price: number;

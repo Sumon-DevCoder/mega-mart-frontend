@@ -39,7 +39,7 @@ const Banner = () => {
   ];
 
   return (
-    <div className="bg-[#212844] py-10 flex justify-center rounded-2xl max-w-[1201px] m-auto mt-6">
+    <div className="bg-[#212844] py-2 md:px-5 md:py-5 flex justify-center rounded-2xl max-w-[1201px] m-auto mt-6 mx-5 md:mx-0 h-64">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -68,7 +68,7 @@ const Banner = () => {
               {/* Left Side: Text Content */}
               <div className="text-white w-full md:w-1/2 px-4 text-center md:text-left">
                 <p className="text-sm md:text-lg">{slide.description}</p>
-                <h2 className="text-xl md:text-3xl font-bold my-3">
+                <h2 className="text-sm md:text-3xl font-bold my-3">
                   {slide.title}
                 </h2>
                 <p className="text-sm md:text-xl font-semibold text-yellow-400">
@@ -82,7 +82,7 @@ const Banner = () => {
                   alt={slide.title}
                   width={316}
                   height={316}
-                  className="rounded-lg object-contain"
+                  className="rounded-lg object-contain h-32 w-32 md:h-[200px] md:w-[268px]"
                 />
               </div>
             </div>

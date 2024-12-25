@@ -9,7 +9,7 @@ type SectionProps = {
 const SectionTitle = ({ subtitle, title }: SectionProps) => {
   return (
     <div className="flex justify-between mt-20 border-b max-w-[1201px m-auto] mx-5 lg:mx-0 m-auto">
-      <h1 className="font-semibold border-b-2 border-[#008ECC] md:text-[24px] leading-7">
+      <h1 className="font-semibold border-b-2 border-[#008ECC] md:text-[24px] leading-7 pb-1">
         {subtitle} <span className="text-[#008ECC]">{title}</span>
       </h1>
       <Link

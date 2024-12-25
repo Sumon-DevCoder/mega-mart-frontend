@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export type TProduct = {
+  _id: string;
   data: any;
   name: string;
   description: string;
