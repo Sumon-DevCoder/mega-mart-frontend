@@ -12,19 +12,19 @@ const FooterPage = () => {
           <div>
             <h4 className="font-semibold text-3xl">MegaMart</h4>
             <h2 className="mt-4 mb-1.5 font-semibold">Contact Us</h2>
-            <p className="flex flex-col mb-1.5 font-normal">
+            <div className="flex flex-col mb-1.5 font-normal">
               <div className="flex items-center gap-1">
                 <FaWhatsapp className="text-white" /> <p>WhatsApp:</p>
               </div>
               <span className="ml-5">+1 202-918-2132</span>
-            </p>
-            <p className="flex flex-col mb-1.5 font-normal">
+            </div>
+            <div className="flex flex-col mb-1.5 font-normal">
               <div className="flex items-center gap-1">
                 <TbPhoneCalling className="text-white text-md" />{" "}
                 <p>Call Us:</p>
               </div>
               <span className="ml-5">+1 202-918-2132</span>
-            </p>
+            </div>
             <h2 className="font-semibold mb-1.5">Download App</h2>
             <div className="flex gap-3 flex-wrap">
               <Image

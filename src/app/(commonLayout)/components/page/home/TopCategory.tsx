@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useGetProductsQuery } from "@/redux/features/product/productApi";
-import Link from "next/link";
 import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
+import SectionTitle from "../../SectionTitle";
 
 const TopCategory = () => {
   const { data } = useGetProductsQuery(null);
@@ -32,18 +32,7 @@ const TopCategory = () => {
 
   return (
     <div>
-      <div className="flex justify-between mt-20 border-b">
-        <h1 className="font-semibold border-b-2 border-[#008ECC] text-[24px] leading-7">
-          Shop From <span className="text-[#008ECC]">Top Categories</span>
-        </h1>
-        <Link
-          href={"/products"}
-          className="flex justify-center items-center gap-1 font-medium text-[16px] leading-4 mb-1 hover:text-[#008ECC]"
-        >
-          <span>View All</span>
-          <MdArrowForwardIos className="text-[#008ECC] mb-0.5" />
-        </Link>
-      </div>
+      <SectionTitle subtitle="Shop From" title="Top Categories" />
 
       <div className="relative">
         <div className="flex justify-center gap-10 overflow-hidden">
