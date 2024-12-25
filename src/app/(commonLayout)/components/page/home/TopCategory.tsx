@@ -2,15 +2,13 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { useGetProductsQuery } from "@/redux/features/product/productApi";
 import SectionTitle from "../../SectionTitle";
 import { TProduct } from "@/types/gobal";
+import useGetProducts from "@/hooks/useGetProducts";
 
 const TopCategory = () => {
-  const { data } = useGetProductsQuery(null);
+  const { categories } = useGetProducts();
   const router = useRouter();
-
-  const categories = data?.data?.result || [];
 
   const handleCategoryClick = (category: string) => {
     router.push(`/products?category=${encodeURIComponent(category)}`);
@@ -25,7 +23,7 @@ const TopCategory = () => {
           className="flex gap-5 overflow-x-auto px-4 md:px-0 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100"
           style={{ scrollBehavior: "smooth" }}
         >
-          {categories.map((category: TProduct) => (
+          {categories?.slice(0, 7).map((category: TProduct) => (
             <div
               key={category.category}
               onClick={() => handleCategoryClick(category.category)}
