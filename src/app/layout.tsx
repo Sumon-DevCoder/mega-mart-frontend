@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk } from "next/font/google"; // Import Hanken Grotesk font
 import "./globals.css";
+import TopLoader from "./components/TopLoader";
+import ScrollToTopButton from "./components/ScrollTopButton";
+import ReduxProvider from "./provider/ReduxProvider";
 
 // Load the Hanken Grotesk font
 const hankenGrotesk = Hanken_Grotesk({
@@ -21,9 +24,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${hankenGrotesk.variable} antialiased bg-[#FFFFFF] text-black max-w-screen-xl m-auto`}
+        className={`${hankenGrotesk.variable} antialiased bg-[#FFFFFF] text-black`}
       >
-        {children}
+        <div className="">
+          <TopLoader />
+          <ScrollToTopButton />
+          <ReduxProvider>{children}</ReduxProvider>
+        </div>
       </body>
     </html>
   );

@@ -14,7 +14,7 @@ export default async function dashboardLayout({
 }>) {
   return (
     <div>
-      <div className="">
+      <div className="bg-[#FFFFFF] text-black max-w-screen-xl m-auto">
         <Navbar />
         {children}
       </div>

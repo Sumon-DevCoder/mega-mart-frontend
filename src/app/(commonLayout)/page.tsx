@@ -4,7 +4,7 @@ import TopCategory from "./components/page/home/TopCategory";
 
 const HomePage = () => {
   return (
-    <div className="max-w-screen-xl m-auto">
+    <div className="">
       <Banner />
       <TopCategory />
     </div>

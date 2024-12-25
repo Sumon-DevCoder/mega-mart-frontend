@@ -39,7 +39,7 @@ const Banner = () => {
   ];
 
   return (
-    <div className="bg-[#212844] py-10 flex justify-center rounded-2xl">
+    <div className="bg-[#212844] py-10 flex justify-center rounded-2xl max-w-[1201px] m-auto mt-6">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
