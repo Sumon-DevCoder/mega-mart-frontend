@@ -1,9 +1,7 @@
+import DynamicLoadingPercentage from "./components/DynamicLoadingPercentage";
+
 const LoadingPage = () => {
-  return (
-    <div>
-      <h2>Loading...</h2>
-    </div>
-  );
+  return <DynamicLoadingPercentage />;
 };
 
 export default LoadingPage;

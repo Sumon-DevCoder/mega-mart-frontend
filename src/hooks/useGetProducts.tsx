@@ -2,8 +2,8 @@
 
 import { useGetProductsQuery } from "@/redux/features/product/productApi";
 
-const useGetProducts = () => {
-  const { data, isLoading } = useGetProductsQuery(null);
+const useGetProducts = (value: string | null) => {
+  const { data, isLoading } = useGetProductsQuery(value);
 
   const categories = data?.data?.result || [];
 

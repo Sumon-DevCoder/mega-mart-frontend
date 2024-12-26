@@ -15,6 +15,8 @@ export type TProduct = {
     unit: "kg" | "gm";
   };
   brand: string;
+  brandType: string;
+  brandLogo: string;
   discount: number;
   category: string;
 };
@@ -23,4 +25,5 @@ export type TCategory = {
   category: string;
   categoryImg: string;
   products: TProduct[];
+  categoryType: string;
 };
