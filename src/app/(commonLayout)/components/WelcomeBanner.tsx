@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const WelcomeBanner = () => {
   return (
-    <div className="flex hidden flex-col md:flex-row md:justify-between items-center text-[#666666] bg-[#F5F5F5] py-2 px-5 lg:px-20">
+    <div className="flex flex-col md:flex-row md:justify-between items-center text-[#666666] bg-[#F5F5F5] py-2 px-7 lg:px-20">
       {/* Welcome Message */}
       <div>
         <h2 className="text-sm font-normal text-center md:text-left">

@@ -1,59 +1,118 @@
-import Link from "next/link";
+"use client";
+import { useRouter } from "next/navigation";
 import { BsJustifyLeft } from "react-icons/bs";
 import { CiSearch, CiUser, CiShoppingCart } from "react-icons/ci";
 import { BiListUl } from "react-icons/bi";
+import { useState } from "react";
+import Link from "next/link";
+import {
+  BsHouseDoor,
+  BsBoxSeam,
+  BsInfoCircle,
+  BsEnvelope,
+  BsPerson,
+} from "react-icons/bs";
+import { AiFillCloseSquare } from "react-icons/ai";
 
 const Navbar = () => {
+  const [searchQuery, setSearchQuery] = useState(""); // State to store search query
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State to toggle sidebar
+  const router = useRouter(); // Next.js router to navigate
+
+  // Handle search input change
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSearchEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && searchQuery.trim()) {
+      // router.push(`/products?search=${searchQuery}`);
+      router.push(`/product`);
+    }
+  };
+
   return (
-    <div className="navbar bg-base-100 px-4 hidden">
+    <div className="navbar bg-base-100 px-6 lg:px-0 relative">
+      {/* Sidebar */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          onClick={() => setIsSidebarOpen(false)}
+        ></div>
+      )}
+      {/* main sidebar */}
+      <div
+        className={`fixed top-0 flex flex-col left-0 w-48 h-full bg-white shadow-lg z-50 transform ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out`}
+      >
+        <div className="p-4 border-b space-x-2 border-gray-200 flex items-center justify-between">
+          <h2 className="text-2xl font-bold text-[#008ECC]">MegaMart</h2>
+          <div
+            onClick={() => setIsSidebarOpen(false)}
+            className="text-2xl text-gray-600"
+          >
+            <AiFillCloseSquare className="text-[#008ECC] " />
+          </div>
+        </div>
+        <ul className="mt-4 space-y-2">
+          <li className="border-b border-gray-200">
+            <Link
+              href="/"
+              className="flex items-center px-4 py-3 text-gray-700 hover:text-[#008ECC]"
+            >
+              <BsHouseDoor className="text-xl mr-3 text-[#008ECC]" />
+              <span>Home</span>
+            </Link>
+          </li>
+          <li className="border-b border-gray-200">
+            <Link
+              href="/product"
+              className="flex items-center px-4 py-3 text-gray-700 hover:text-[#008ECC]"
+            >
+              <BsBoxSeam className="text-xl mr-3 text-[#008ECC]" />
+              <span>Products</span>
+            </Link>
+          </li>
+          <li className="border-b border-gray-200">
+            <Link
+              href="/about-us"
+              className="flex items-center px-4 py-3 text-gray-700 hover:text-[#008ECC]"
+            >
+              <BsInfoCircle className="text-xl mr-3 text-[#008ECC]" />
+              <span>About Us</span>
+            </Link>
+          </li>
+          <li className="border-b border-gray-200">
+            <Link
+              href="/contact-us"
+              className="flex items-center px-4 py-3 text-gray-700 hover:text-[#008ECC]"
+            >
+              <BsEnvelope className="text-xl mr-3 text-[#008ECC]" />
+              <span>Contact</span>
+            </Link>
+          </li>
+          <li className="border-b border-gray-200">
+            <Link
+              href="/login"
+              className="flex items-center px-4 py-3 text-gray-700 hover:text-[#008ECC]"
+            >
+              <BsPerson className="text-xl mr-3 text-[#008ECC]" />
+              <span>Sign In</span>
+            </Link>
+          </li>
+        </ul>
+      </div>
+
       {/* Navbar Start */}
       <div className="navbar-start flex items-center gap-2">
-        {/* Hamburger Menu for Small Screens */}
-        <div className="dropdown lg:hidden">
-          <div tabIndex={0} role="button" className="btn btn-ghost">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+        {/* Hamburger Menu */}
+        <button onClick={() => setIsSidebarOpen(true)} className="">
+          <div className="bg-slate-200 hover:bg-slate-100 rounded-lg">
+            <BsJustifyLeft className="text-4xl text-[#008ECC] p-1" />
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-          >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
-        </div>
+        </button>
 
-        {/* Logo */}
-        <div className="bg-[#F3F9FB] rounded-lg p-1">
-          <BsJustifyLeft className="text-3xl text-[#008ECC]" />
-        </div>
         <Link href="/" className="text-xl lg:text-2xl font-bold text-[#008ECC]">
           MegaMart
         </Link>
@@ -70,6 +129,9 @@ const Navbar = () => {
             type="text"
             className="bg-[#F3F9FB] pl-10 pr-12 py-2 w-full rounded-md text-[#333] placeholder:text-[#aaa] focus:outline-none"
             placeholder="Search essentials, groceries and more..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+            onKeyDown={handleSearchEnter}
           />
           <BiListUl
             className="absolute top-1/2 right-3 transform -translate-y-1/2 text-[#008ECC]"
@@ -81,21 +143,27 @@ const Navbar = () => {
       {/* Navbar End */}
       <div className="navbar-end flex items-center gap-3">
         {/* User Login */}
-        <div className="hidden sm:flex items-center gap-2">
+        <Link
+          href={"/login"}
+          className="hidden sm:flex items-center gap-0.5 hover:text-[#008ECC]"
+        >
           <CiUser className="text-[#008ECC] text-xl lg:text-2xl" />
-          <h2 className="text-sm lg:text-base font-medium">Sign Up/Sign In</h2>
-        </div>
+          <h1 className="text-sm lg:text-base font-medium">Sign Up/Sign In</h1>
+        </Link>
 
         {/* Divider */}
         <div className="hidden sm:block h-6 w-[1px] bg-gray-300"></div>
 
         {/* Cart */}
-        <div className="flex items-center gap-2">
+        <Link
+          href={"/cart"}
+          className="flex items-center gap-0.5 hover:text-[#008ECC]"
+        >
           <CiShoppingCart className="text-[#008ECC] text-xl lg:text-2xl" />
           <h2 className="hidden sm:block text-sm lg:text-base font-medium">
             Cart
           </h2>
-        </div>
+        </Link>
       </div>
     </div>
   );

@@ -41,8 +41,8 @@ const TopElectronicsBrand = () => {
           modules={[Autoplay, Pagination]}
           className="mySwiper mt-10"
         >
-          {topElectronics?.map((product: TProduct) => (
-            <SwiperSlide key={product?._id}>
+          {topElectronics?.map((product: TProduct, index: number) => (
+            <SwiperSlide key={index}>
               <div className="flex justify-between gap-4 items-center p-4 rounded-lg shadow-md w-[390px] mx-auto bg-[#313131]  h-[207px]">
                 {/* Left Content */}
                 <div className="col-span-2 flex flex-col items-start space-y-2">

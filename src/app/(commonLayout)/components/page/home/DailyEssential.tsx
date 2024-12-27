@@ -18,15 +18,15 @@ const DailyEssential = () => {
   console.log("premiumFruits", topPremiumFruits);
 
   return (
-    <div className="hidden">
+    <div className="">
       <SectionTitle subtitle="Daily" title="Essentials" />
       {isLoading ? (
         <DynamicLoader />
       ) : (
         <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-6 gap-4 mt-4 px-5 lg:px-0">
-          {topPremiumFruits?.map((fruit: TProduct) => (
+          {topPremiumFruits?.map((fruit: TProduct, index: number) => (
             <div
-              key={fruit._id}
+              key={index}
               className="overflow-hidden hover:border rounded-2xl cursor-pointer"
             >
               {/* Product Image */}

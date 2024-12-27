@@ -26,7 +26,7 @@ const TopCategory = () => {
 
       <div className="relative">
         <div
-          className="flex gap-5 overflow-x-auto px-4 md:px-0 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 justify-center"
+          className="flex gap-10 overflow-x-auto px-4 md:px-0 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 justify-center"
           style={{ scrollBehavior: "smooth" }}
         >
           {isLoading ? (

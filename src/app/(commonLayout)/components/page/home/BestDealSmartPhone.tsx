@@ -17,9 +17,9 @@ const BestDealSmartPhone = () => {
       {isLoading ? (
         <DynamicLoader />
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 place-items-center gap-6 mt-10 mx-0 md:mx-6 lg:mx-0">
-          {mobiles.map((mobile) => (
-            <ProductCard key={mobile._id} product={mobile} />
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 place-items-center gap-6 mt-5 mx-0 md:mx-6 lg:mx-0">
+          {mobiles?.map((mobile, index: number) => (
+            <ProductCard key={index} product={mobile} />
           ))}
         </div>
       )}
