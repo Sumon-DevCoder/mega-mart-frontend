@@ -8,11 +8,11 @@ import TopElectronicsBrand from "./components/page/home/TopElectronicsBrand";
 const HomePage = () => {
   return (
     <div className="">
-      <Banner />
+      {/* <Banner />
       <BestDealSmartPhone />
       <TopCategory />
       <TopElectronicsBrand />
-      <DailyEssential />
+      <DailyEssential /> */}
     </div>
   );
 };

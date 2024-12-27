@@ -16,8 +16,6 @@ const TopCategory = () => {
     (category: TCategory) => category.categoryType === "top"
   );
 
-  console.log(topCategories);
-
   const handleCategoryClick = (category: string) => {
     router.push(`/products?category=${encodeURIComponent(category)}`);
   };

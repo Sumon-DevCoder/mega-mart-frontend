@@ -19,7 +19,7 @@ const TopElectronicsBrand = () => {
   );
 
   return (
-    <div className="">
+    <div className="hidden">
       <SectionTitle subtitle="Top Electronics" title="Brands" />
       {isLoading ? (
         <DynamicLoader />

@@ -18,7 +18,7 @@ const DailyEssential = () => {
   console.log("premiumFruits", topPremiumFruits);
 
   return (
-    <div>
+    <div className="hidden">
       <SectionTitle subtitle="Daily" title="Essentials" />
       {isLoading ? (
         <DynamicLoader />

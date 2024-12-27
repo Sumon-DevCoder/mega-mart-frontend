@@ -25,6 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${hankenGrotesk.variable} antialiased bg-[#FFFFFF] text-black`}
+        style={{ fontFamily: "var(--font-hanken-grotesk), sans-serif" }}
       >
         <div className="">
           <TopLoader />

@@ -5,7 +5,7 @@ import { BiListUl } from "react-icons/bi";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100 px-4">
+    <div className="navbar bg-base-100 px-4 hidden">
       {/* Navbar Start */}
       <div className="navbar-start flex items-center gap-2">
         {/* Hamburger Menu for Small Screens */}
